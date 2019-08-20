@@ -1,7 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 load("@bototest//:requirements.bzl", "requirement")
 
-py_binary(
+py_test(
     name = "boto_test",
     srcs = ["boto_test.py"],
     deps = [
