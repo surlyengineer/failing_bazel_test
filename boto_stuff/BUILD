@@ -1,0 +1,33 @@
+package(default_visibility = ["//visibility:public"])
+load("@bototest//:requirements.bzl", "requirement")
+
+py_binary(
+    name = "boto_test",
+    srcs = ["boto_test.py"],
+    deps = [
+        requirement("boto3"),
+        requirement("six"),
+    ],
+)
+
+py_library(
+    name = "helloworld",
+    srcs = ["helloworld.py"],
+    deps = [requirement("futures")],
+)
+
+py_test(
+    name = "helloworld_test",
+    srcs = ["helloworld_test.py"],
+    imports = ["."],
+    deps = [":helloworld"],
+    python_version = "PY2",
+)
+
+py_test(
+    name = "helloworld_test2",
+    srcs = ["helloworld_test2.py"],
+    imports = ["."],
+    deps = [":helloworld"],
+    python_version = "PY3",
+)
