@@ -13,20 +13,22 @@ py_test(
 py_library(
     name = "helloworld",
     srcs = ["helloworld.py"],
-    deps = [requirement("futures")],
+    deps = [
+        requirement("boto3"),
+    ]
 )
 
-py_test(
-    name = "helloworld_test",
-    srcs = ["helloworld_test.py"],
-    imports = ["."],
-    deps = [":helloworld"],
-    python_version = "PY2",
-)
+#py_test(
+#    name = "helloworld_test",
+#    srcs = ["helloworld_test.py"],
+#    imports = ["."],
+#    deps = [":helloworld"],
+#    python_version = "PY2",
+#)
 
 py_test(
-    name = "helloworld_test2",
-    srcs = ["helloworld_test2.py"],
+    name = "helloworld_test_py3",
+    srcs = ["helloworld_test_py3.py"],
     imports = ["."],
     deps = [":helloworld"],
     python_version = "PY3",

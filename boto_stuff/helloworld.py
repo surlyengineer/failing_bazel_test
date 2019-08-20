@@ -1,4 +1,5 @@
 from concurrent import futures
+import boto3
 
 
 class HelloWorld(object):
